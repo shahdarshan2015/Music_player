@@ -1,2 +1,34 @@
-<h1>Timetable#index</h1>
-<p>Find me in app/views/timetable/index.html.erb</p>
+<% if member_signed_in? %>
+
+<table class="table table-hover">
+		<tr><td><b>Song name</b></td>
+	<td><b>Favourite</b></td>
+	<td><b>Number of times played</b></td>
+	</tr>
+	<tr>
+		<td>
+			<table class="table table-hover">
+				<% @tests1.each do |a| %>
+				<tr><td class="success"> <%= a.song.songname %></td></tr>
+				<% end %>
+
+			</table>
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<table class="table table-hover">
+				<% @tests.each do |key, value| %>
+				<tr><td class="danger"> <%= value %></td></tr>
+				<% end %>
+			</table>
+		</td>
+		
+	</tr>
+
+	</table>
+<% else %>
+<h2><em>Please login or signup</em></h2>
+<% end %>
+

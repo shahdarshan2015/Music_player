@@ -1,9 +1,22 @@
 
-<% @lists.each do |a| %>
-<tr>
-<td ><%= a.song.songname %></td>
-<td ><%= a.song.album %></td>
-<td ><%= a.song.artist %></td>
-<td ><%= a.fav %></td><br>
-</tr>
+<% if member_signed_in? %>
+
+<table class="table">
+	<tr><td><b>Songname</b></td>
+	<td><b>Album</b></td>
+	<td><b>Artist</b></td>
+	</tr>
+		<% @lists.each do |a| %>
+		<tr>
+		<td ><%= a.song.songname %></td>
+		<td ><%= a.song.album %></td>
+		<td ><%= a.song.artist %></td>
+
+		</tr>
+		<% end %>
+
+</table>
+
+<% else %>
+<h2><em>Please login or signup</em></h2>
 <% end %>
